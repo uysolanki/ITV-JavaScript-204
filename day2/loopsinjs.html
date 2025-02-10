@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="javascript">Register</button>
+   
+
+
+
+    <script>
+            //traditional while loop
+            let i=1;
+            let sum=0;
+            while(i<=10)
+            {
+                sum=sum+i;  //sum+=i
+                i++
+            }
+            console.log(sum)
+
+
+            //do while
+            let j=1;
+            let sum1=0;
+            do
+            {
+                sum1+=j
+                j++;
+            }while(j<=10);
+
+            console.log(sum1)
+
+            let sum2=0;
+            for(let k=1;k<=10;k++)
+            {
+                sum2+=k;
+            }
+
+            console.log(sum2);
+
+
+           let numbers=[10,20,30,40,50]
+           let sum3=0;
+           for(let i=0;i<numbers.length;i++)
+           {
+                sum3+=numbers[i]
+           }
+           console.log(sum3);
+
+           let numbers1=[11,21,31,41,51]
+           let sum4=0;
+           for(let n of numbers1)
+           {
+            sum4+=n
+           }
+           console.log(sum4);
+
+           const numbers2=[11,21,31,41,51]
+           const search=31;
+           let flag=0;
+           let index=0;
+           for(let n of numbers2)
+           {
+            
+            if(search===n)
+           {
+            console.log("found at Index ", index)
+            flag=1;
+            break;
+           }
+           index++;
+           }
+           if(flag===0)
+           console.log("Not Found")
+
+
+
+           const numbers3=[11,21,31,41,51]
+           const search1=61;
+           let k;
+           for(k=0;k<numbers3.length;k++)
+           {
+            if(numbers3[k]==search1)
+           {
+            console.log("Found at Index ",k)
+            break;
+           }
+           }
+
+           if(k===numbers3.length)
+           console.log("Not Found")
+
+           
+
+    </script>
+</body>
+</html>
+
+/*
+loops in javascript
+1. while (done)
+2. do while (done)
+3. traditional for loop (done)
+4. for of (done)
+5. for in  //pre requisite objects in JS
+6. forEach() //arrow function
+7. map()
+8. filter()
+9. reduce()
