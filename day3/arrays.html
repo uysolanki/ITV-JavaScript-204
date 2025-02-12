@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        cars=["Audi","BMW","Mercedes","Honda","Maruti","Mahindra"]
+        console.log(cars)
+
+
+        console.log(cars.length)
+
+        cars.push("Tata"); //add to the end of the array
+
+        console.log(cars)
+
+        cars.unshift("Tesla") //add to the start of the array
+
+        console.log(cars)
+
+        const lastCar=cars.pop();
+        console.log(lastCar)
+        console.log(cars)
+
+        const firstCar=cars.shift()
+        console.log(firstCar)
+        console.log(cars)
+
+        const car2ndIndex=cars.at(2);
+        const car3rdIndex=cars[3];
+
+        console.log(car2ndIndex)
+        console.log(car3rdIndex)
+
+        const index=cars.indexOf("Maruti")
+        console.log("Maruti is at ",index, ' Index')
+
+        console.log(cars.includes("Volvo")) //false
+        console.log(cars.includes("Honda")) //true
+        console.log(cars.includes("honda")) //false it is case sensitive
+
+        const carLen=cars.every(
+            (car)=> car.length>=5
+        )
+        console.log("--------")
+        console.log(carLen) //false
+
+        const carLen1=cars.some(
+            (car)=> car.length>=15
+        )
+
+        console.log("*******")
+        console.log(carLen1) //true
+
+
+        // cars.fill("Car")
+        // console.log(cars)
+
+        const bikes=["Kawasaki","Ducati","Bajaj"]
+        const vehicles=cars.concat(bikes)
+        console.log(vehicles)
+
+
+        console.log(cars.reverse())
+
+        console.log(cars.sort())
+
+        //["Audi","BMW","Mercedes","Honda","Maruti","Mahindra"]
+        //"Audi,BMW,Mercedes,Honda,Maruti,Mahindra"
+        //"Audi-BMW-Mercedes-Honda-Maruti-Mahindra"
+        //"Audi BMW Mercedes Honda Maruti Mahindra"
+        const carString=cars.join(',')
+        console.log(carString)
+        const carString1=cars.join('-')
+        console.log(carString1)
+        const carString2=cars.join(' ')
+        console.log(carString2)
+
+
+        const multi2DArray=[1,2,3,[4,5,6]]
+        console.log(multi2DArray)
+        console.log(typeof multi2DArray[3])
+
+        const singleDArray=multi2DArray.flat()
+        console.log(singleDArray)
+
+        const newStringCars=cars.toString();
+        console.log(newStringCars)
+
+
+        // const arr1=[10,20,30]
+        // console.log(arr1[0]) //10
+
+        // const arr2=arr1;
+        // console.log(arr2[0]) //10
+
+        // arr2[0]=99;
+        // console.log(arr2[0]) //99
+        // console.log(arr1[0]) //99
+
+
+        // const arr1=[10,20,30]
+        // console.log(arr1[0]) //10
+
+        // const arr2=arr1.slice();
+        // console.log(arr2[0]) //10
+
+        // arr2[0]=99;
+        // console.log(arr2[0]) //99
+        // console.log(arr1[0]) //10
+
+
+           //             2  3  4
+        // const arr1=[10,20,30,40,50,60]
+        // let slicedArray=arr1.slice(2)
+        // console.log(slicedArray)
+
+        // console.log(arr1)
+
+
+        const arr1=[10,20,30,40,50,60]
+        let splicedArray=arr1.splice(3,1)
+        console.log(splicedArray)  //30,40
+        console.log(arr1)          //10,20,50,60
+
+
+        player={
+
+        }
+
+        console.log(Array.isArray(splicedArray))
+
+        let fruit="Apple"
+        console.log(fruit)
+        let fruitArray=Array.from(fruit)
+        console.log(fruitArray) //['A','p','p','l','e']
+        fruitArray.push('s')
+        console.log(fruitArray)
+
+    </script>
+</body>
+</html>

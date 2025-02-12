@@ -28,7 +28,7 @@
         //     console.log(area);
         // }
 
-        // areaRectangle(10,20);
+       
         // function areaRectangle(length,width)
         // {
         //     let area=length*width;
@@ -63,20 +63,71 @@
         // console.log(c(4,80))
         // console.log(typeof c)
 
-        lunch('Biryani', naturals)
+        // lunch('Biryani', naturals)
 
 
-        function lunch(maincourse, abc)
+        // function lunch(maincourse, callback)
+        // {
+        //     console.log('WE have eaten ',maincourse);
+        //     callback('Mango')
+        // }
+
+        // function naturals(flavour)
+        // {
+        //     console.log(`We have eaten ${flavour} ICE Cream`)
+        // }
+
+
+        // addition(10,20,display);
+
+        // function addition(value1,value2,callback)
+        // {
+        //     const result=value1+value2
+        //     callback(result)
+        // }
+
+        // function display(sum)
+        // {
+        //     console.log('Result is ', sum)
+        // }
+
+        //Asynchronous Programming 
+
+
+
+        // setTimeout(displayCourse,5000)
+        // console.log("FE Complete")
+        // console.log("SE Complete")
+        // console.log("TE Complete")
+        // console.log("BE Complete")
+
+        // function displayCourse()
+        // {
+        //     console.log("Degree Certificate received")
+        // }
+
+        // setTimeout(()=>{console.log("Degree Certificate received via SPEEDPOST")},5000)
+        // console.log("FE Complete")
+        // console.log("SE Complete")
+        // console.log("TE Complete")
+        // console.log("BE Complete")
+
+
+
+        setInterval(()=>{
+            displayCourse("MBA")
+        },5000)
+        console.log("FE Complete")
+        console.log("SE Complete")
+        console.log("TE Complete")
+        console.log("BE Complete")
+
+        function displayCourse(courseName)
         {
-            console.log('WE have eaten ',maincourse);
-            abc('Mango')
+            console.log(`${courseName} Degree Certificate received`)
         }
 
-        function naturals(flavour)
-        {
-            console.log(`We have eaten ${flavour} ICE Cream`)
-        }
-
+       
     </script>
 </body>
 </html>

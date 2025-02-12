@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        //forEach()
+        //Iterates  over the array element by element
+        //does not return any value, hence no LHS
+        //no chaining
+        // const arr=[10,20,30,40,50]
+        // let sum=0
+        // arr.forEach((number)=>{
+        //         if(number<25)
+        //         return
+        //         sum+=number*2   //sum0,60,140,240
+        // }
+        // ); 
+
+        //console.log(sum)
+
+        // const arr=[10,20,30,40,50]
+        // let doubleArr=[];
+        // arr.forEach((number)=>{
+        //     doubleArr.push(number*2)
+        // });
+
+        // console.log(doubleArr)
+
+        //Map()
+        // const arr=[10,20,30,40,50]
+        // let brr=arr.map(number=>number*5);
+
+        // console.log('Original Array ',arr)
+        // console.log('New Mapped Array ',brr)
+
+        // const arr=[10,20,30,40,50]
+        // let brr=arr.map((number)=>{
+        //     if(number>25)
+        //     {
+        //     return number*2
+        //     }
+        // });
+        // console.log(brr)
+
+        //Filter()
+        // const arr=[10,20,30,40,50]
+        // let brr=arr.filter((number)=>{
+        //     if(number>25)
+        //     {
+        //     return number
+        //     }
+        // });
+        // console.log(brr)
+
+        // let doubleArr=brr.map((number)=>number*2)
+
+        // console.log(doubleArr)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        let crr=[10,20,45,80,90];
+
+        // let drr=crr.filter(number=>number>25).map(number=>number*2)
+        // console.log(drr)
+
+        let frr=crr.map(number=>number*2).filter(number=>number>=100).reduce((acc,number)=> acc+number)
+        console.log(frr)
+
+
+
+
+        
+        
+        //Reduce()
+
+        let arr=[10,20,30,40,50]
+        let sum=arr.reduce((acc,number)=> acc+number,100)
+        console.log(sum)
+    </script>
+</body>
+</html>
