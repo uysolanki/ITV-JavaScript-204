@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Very New Programming Courses</h3>
+
+    <div id="one">Welcome to FSD</div>
+    <h1 class="two">ITVedant</h1>
+    <h1 class="two"></h1>FC Road</h1>
+
+    <input type="text" id="t1"/>
+    <input type="text" id="t2"/>
+    <input type="password" id="p1"/>
+    <input id="t3">
+
+    <div class="main">
+        <h1 class="red">Welcome to FSD</h1>
+        <div>
+                <h3>Programming Courses</h3>
+                <p>February</p>
+                <p>March</p>
+        </div>
+        <p class="red">FSD</p>
+        <p>.net</p>
+    </div>
+
+    <div>
+        <h2 class="red">Non Programming Courses</h2>
+        <p>Testing</p>
+        <h3>New Programming Courses</h3>
+    </div>
+
+    <script>
+        let headingElement=document.getElementsByTagName('h1')
+        console.log(headingElement.length)
+
+        headingElement[0].innerText="Java Springboot And React JS"
+        headingElement[1].innerText="ItVedant Edtech Pvt Ltd"
+        headingElement[2].innerText="FC Road, Pune"
+
+        let firstHeading=document.getElementById('one')
+        firstHeading.innerHTML="Apple"
+
+        let classTwoElements=document.getElementsByClassName('two')
+        console.log(classTwoElements.length)
+
+        Array.from(classTwoElements).forEach(
+            (element)=>{
+                   element.innerText="Test"
+            }
+        )
+
+       const idOneElement= document.querySelector("#one")
+       idOneElement.innerHTML="<p>Welcome to Full Stack Development</p>"
+
+
+       let redClassElements=document.querySelectorAll('.red');
+      for(let i=0;i<redClassElements.length;i++)
+      {
+        redClassElements[i].innerHTML="<h1>Welcome</h1>"
+      }
+
+
+      let allDivElements=document.querySelectorAll('div')
+      console.log(allDivElements.length)
+      Array.from(allDivElements).forEach(
+        (divElement,index)=>{
+            if(index%2===0)
+            divElement.style.backgroundColor='red'
+            else
+            divElement.style.backgroundColor='yellow'
+        }
+      )
+
+      let allInputElements=document.querySelectorAll('input[type]')
+      console.log(allInputElements)
+
+
+      let allTextInputElements=document.querySelectorAll('input[type=text]')
+      console.log(allTextInputElements)
+
+
+      let h3OfMainClass=document.querySelectorAll('.main h3')
+      console.log(h3OfMainClass.length)
+      h3OfMainClass[0].innerText="Technicle Courses"
+
+      let pChildOfMainClass=document.querySelectorAll('.main>p')
+      console.log(pChildOfMainClass.length)
+
+      let allh3ElementsOnThePage=document.querySelectorAll('h3')
+      console.log(allh3ElementsOnThePage.length)
+
+
+      let mainDivElement=document.querySelectorAll('.main')
+      
+      Array.from(mainDivElement).forEach(
+        (divElement)=>
+        {
+            divElement.querySelector('h3').innerHTML="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        }
+      )
+    </script>
+</body>
+</html>
