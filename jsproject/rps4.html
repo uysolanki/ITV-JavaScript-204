@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body {
+        background-color: black;
+        color: white;
+        font-family: arial;
+        
+      }
+        .move-button{
+        height: 100px;
+        width: 100px;
+        border : 3px solid white;
+        border-radius: 50px;
+        background-color: transparent;
+        margin: 0px 20px;
+        cursor: pointer;
+      }
+      .move-icon {
+        height: 70px;
+      }
+      .small-move-icon {
+        height: 50px;
+      }
+      .game-area
+      {
+        display: inline-block;
+        border: 1px solid red;
+        text-align: center;
+        padding: 10px;
+        margin-top: 100px;
+        background-color: rgb(49, 43, 43);
+      }
+      .player-move,.game-result,.scoreboard{
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .autoplay-button{
+        background-color: red;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 2px;
+        padding: 10px;
+        cursor: pointer;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <center>
+        <div class="game-area">
+    <button onclick="playGame('ROCK')" class="move-button"><img src="../images/rock-emoji.png" class="move-icon"/></button>
+    <button onclick="playGame('PAPER')" class="move-button"><img src="../images/paper-emoji.png" class="move-icon"/></button>
+    <button onclick="playGame('SCISSORS')" class="move-button"><img src="../images/scissors-emoji.png" class="move-icon"/></button>
+    <button onclick="clearScore()" class="move-button"> <img src="../images/refresh-emoji.png" class="move-icon"/></button>
+    <p id="js-moves" class="player-move"></p>
+    <p id="js-result" class="game-result"></p>
+    <p id="js-scoreboard" class="scoreboard"></p>
+    <button  onclick="playAutoMode()"  class="js-autoplay-button autoplay-button">AUTOPLAY</button>
+        </div>
+        </center>
+    <script>
+       let score={
+            win:0,
+            loss:0,
+            tie:0
+        }
+
+       let scoreboardParagraphElement=document.querySelector('#js-scoreboard')
+
+       function playGame(playerMove)
+       {
+        let computerMove=generateComputerMove()
+        console.log(`computer move-> ${computerMove}  |  ${playerMove} <-Player move`)
+        let result='';
+        
+
+        displayScoreBoard(score)
+        switch(playerMove)
+        {
+            case 'ROCK':
+                            switch(computerMove)
+                            {
+                                case 'ROCK': result='TIE'; break
+                                case 'PAPER': result='LOSS'; break
+                                case 'SCISSORS': result='WIN'; break
+                            }
+                            break;
+            case 'PAPER':
+                            switch(computerMove)
+                            {
+                                case 'ROCK': result='WIN'; break
+                                case 'PAPER': result='TIE'; break
+                                case 'SCISSORS': result='LOSS'; break
+                            }
+                            break;
+            case 'SCISSORS':
+                            switch(computerMove)
+                            {
+                                case 'ROCK': result='LOSS'; break
+                                case 'PAPER': result='WIN'; break
+                                case 'SCISSORS': result='TIE'; break
+                            }
+                            break;
+        }
+        console.log(`Result : ${result}`)
+        switch(result)
+        {
+            case 'LOSS':score.loss+=1; break;
+            case 'WIN':score.win+=1; break;
+            case 'TIE':score.tie+=1; break;
+        }
+        displayScoreBoard(score)
+
+        let moveParagraphElement=document.querySelector('#js-moves')
+        let resultParagraphElement=document.querySelector('#js-result')
+       
+
+       // moveParagraphElement.innerHTML=`computer move-> ${computerMove}  |  ${playerMove} <-Player move`
+       moveParagraphElement.innerHTML=`computer move-> <img src="../images/${computerMove}-emoji.png" class="small-move-icon"/>  |  <img src="../images/${playerMove}-emoji.png" class="small-move-icon"/> <-Player move`
+        resultParagraphElement.innerHTML=`Result : ${result}`
+       }
+
+       function generateComputerMove()
+       {
+        let randomNumber=Math.random()
+        console.log(randomNumber)
+        if(randomNumber<=1/3)
+        return "ROCK"
+        else if(randomNumber>1/3 && randomNumber<=2/3)
+        return "PAPER"
+        else
+        return "SCISSORS"
+       }
+
+       function displayScoreBoard(score)
+       {
+        console.log(`Scoreboard : WINS ${score.win} LOSS ${score.loss} TIE ${score.tie}`)
+        scoreboardParagraphElement.innerHTML=`Scoreboard : WINS ${score.win} LOSS ${score.loss} TIE ${score.tie}`
+      }
+      function clearScore(){
+        score={
+            win:0,
+            loss:0,
+            tie:0
+        }
+        displayScoreBoard(score)
+      }
+
+      let isAutoPlaying = false;
+      let intervalId;
+      let autoplayButtonElement;
+      function playAutoMode()
+      {
+        if(isAutoPlaying==false)
+        {
+                intervalId=setInterval(()=>{
+                let computerGeneratedPlayerMove=generateComputerMove()
+                playGame(computerGeneratedPlayerMove)
+            },1000)
+            isAutoPlaying=true
+            autoplayButtonElement=document.querySelector('.js-autoplay-button').style.backgroundColor="green"
+        }
+        else
+        {
+            isAutoPlaying=false
+            clearInterval(intervalId)
+            autoplayButtonElement=document.querySelector('.js-autoplay-button').style.backgroundColor="red"
+        }     
+           
+      }
+    </script>
+</body>
+</html>
