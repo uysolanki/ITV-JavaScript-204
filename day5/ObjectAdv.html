@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+let objectPlayer={
+    jno:1,
+    pname:'Rahul',
+    mp:100,
+    rs:6000
+}
+console.log(typeof objectPlayer)
+    
+//convert object to a string
+let stringPlayer=JSON.stringify(objectPlayer)
+
+console.log(typeof stringPlayer)
+
+let objectPlayer1=JSON.parse(stringPlayer)
+console.log(typeof objectPlayer1)
+
+
+
+    </script>
+</body>
+</html>
