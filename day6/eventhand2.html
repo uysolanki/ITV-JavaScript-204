@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="one">RED</button>
+    <button class="one">GREEN</button>
+    <button class="one">BLUE</button>
+
+
+    <script>
+
+        allButtons=document.querySelectorAll('.one')
+        console.log(allButtons)
+
+        allButtons.forEach((button,index)=>
+            button.addEventListener('click', ()=>{
+                test(index)
+            })
+        )
+
+        function test(index)
+        {
+            switch(index)
+            {
+                case 0 : allButtons[index].style.setProperty('background-color','red');break
+                case 1 : allButtons[index].style.setProperty('background-color','green');break
+                case 2 : allButtons[index].style.setProperty('background-color','blue');break
+            }
+        }
+    </script>
+</body>
+</html>

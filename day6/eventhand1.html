@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="js-text1" />
+      <button id="js-one">Positive Negative</button><br />
+      <span id="js-span"></span>
+    </div>
+    <script>
+      const buttonElement = document.querySelector("#js-one");
+      buttonElement.addEventListener("click", posneg);
+
+      const textElement = document.querySelector("#js-text1");
+      textElement.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+          posneg();
+        }
+      });
+
+      const spanElement = document.querySelector("#js-span");
+      
+      function posneg() {
+        const textboxData = textElement.value;
+        // console.log(textboxData)
+        if (textboxData > 0) {
+          spanElement.innerHTML = "Number is Positive";
+          textElement.style.setProperty("border", "2px solid green");
+        } else {
+          spanElement.innerHTML = "Number is Negative";
+          textElement.style.setProperty("border", "2px solid red");
+        }
+      }
+    </script>
+  </body>
+</html>
