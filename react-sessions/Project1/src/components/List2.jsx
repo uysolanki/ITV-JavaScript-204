@@ -18,18 +18,23 @@ const List2 = () => {
             pname:'Rahul'
         }
     ]
+
+    function showTeamName(playerName)
+    {
+        console.log(playerName)
+    }
   return (
     <ol>
         {cars.map(
-            (car)=>{
-                return <li>{car}</li>
+            (car,index)=>{
+                return <li key={index}>{car}</li>
             }
         )}
 
         {
             players.map(
-                (player)=>{
-                        return<h1>{player.pname}</h1>
+                (player,index)=>{
+                        return<h1 onClick={()=>showTeamName(player.pname)} key={index}>{player.pname}</h1>
                 }
             )
         }
