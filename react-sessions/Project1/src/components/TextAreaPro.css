@@ -1,0 +1,30 @@
+.parent-container{
+    display: flex;
+}
+
+.left-section{
+    background-color: lightpink;
+    flex:1;
+    height: 400px;
+
+}
+
+.right-section{
+    background-color: lightgray;
+    flex:1;
+    height: 400px;
+}
+
+.button-container{
+    display: flex;
+    align-items: center;
+    justify-content:space-around
+}
+
+button{
+    background-color: rgb(79, 32, 32);
+    color:white;
+    padding: 5px;
+    border :white solid 5px;
+    border-radius: 5px;
+}
