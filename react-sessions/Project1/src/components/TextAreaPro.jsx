@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './TextAreaPro.css'
 import Button from './shared/Button'
+import { IoLogInSharp } from "react-icons/io5";
 
 const TextAreaPro = () => {
 
@@ -28,6 +29,7 @@ const TextAreaPro = () => {
     setPreviewText((prev)=>prev.toLowerCase())
    }
   
+   const cars=["Merc","Audi","BMW"]
     return (
    <>
     <div className='parent-container'>
@@ -45,10 +47,10 @@ const TextAreaPro = () => {
                                     {/* <button>LowerCase</button> */}
                                     <button>WordCount</button>
                                     <button>LineCount</button>
-                                    <Button text="Upper Case" handleclick={convertToUpperCase}/>
-                                    <Button text="Lower Case" handleclick={convertToLowerCase}/>
+                                    <Button text="Upper Case" handleclick={convertToUpperCase} bgcolor="red" color="yellow" icon={<IoLogInSharp />} test={cars}/>
+                                    <Button text="Lower Case" handleclick={convertToLowerCase} icon={<IoLogInSharp />}/>
                                     <Button text="Word Count" handleclick={wordCount}/>
-                                    <Button text="Line Count"/>
+                                    <Button />
                     </div>
             </div>
             <div className='right-section'>
