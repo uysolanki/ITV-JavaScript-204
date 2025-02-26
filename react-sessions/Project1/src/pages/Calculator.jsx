@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Calculator.css'
 
 import pic1 from '../assets/myimages/pic1.jpg'
@@ -12,26 +12,11 @@ const Calculator = () => {
     const [op1, setOp1] = useState(null)
     const [operation, setOperation] = useState(null)
 
-    function incrementBy1()
-    {
-        setValue((prev)=>(prev+1))
-    }
-
-    function incrementBy2()
-    {
-        setValue((prev)=>(prev+2))
-    }
-
-    function decrementBy1()
-    {
-        setValue((prev)=>(prev-1))
-    }
-
-    function decrementBy2()
-    {
-        setValue((prev)=>(prev-2))
-    }
-
+    useEffect(
+        ()=>{
+               api call
+        },[]
+    )
     function buttonClick(buttonText)
     {
       
