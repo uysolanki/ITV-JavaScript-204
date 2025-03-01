@@ -1,0 +1,77 @@
+import { useEffect, useState } from "react";
+import "./TextAreaPro.css";
+const TextAreaPro = () => {
+  const [text, setText] = useState("");
+  const [count, setCount] = useState(0);
+  const [previewText, setpreviewText] = useState();
+
+  useEffect(() => {
+    console.log("Excler Edtech");
+  }, [text]);
+
+  function handleUpdateInTextArea(event) {
+    setText(event.target.value);
+    setpreviewText(event.target.value);
+  }
+
+  function convertToUpper() {
+    setpreviewText(text.toUpperCase())
+  }
+
+  function convertToLower() {
+    setpreviewText(text.toLowerCase())
+  }
+  
+  const handleClear = () => {
+    setText("");
+  };
+  return (
+    <div className="parentContainer">
+      <div className="left">
+        <div>
+          <textarea
+            rows="10"
+            cols="50"
+            value={text}
+            onChange={handleUpdateInTextArea}
+          ></textarea>
+        </div>
+        <div>
+          <h3>Character Count : {text.length}</h3>
+          {/* <h3>Word Count : {text.split(" ").length}</h3> */}
+          <h3>Word Count : {text.trim()===""? 0 : text.split(" ").length}</h3>
+        </div>
+        <div className="button-group">
+          <button onClick={convertToUpper}>Convert to Upper Case</button>
+          <button onClick={convertToLower}>Convert to Lower Case</button>
+
+         <button onClick={handleClear}>Clear</button>
+          <span>{count}</span>
+        </div>
+      </div>
+      <div className="right">
+        <h3>Preview : </h3> <p>{previewText || "No text to preview."}</p>
+      </div>
+    </div>
+  );
+};
+
+export default TextAreaPro;
+
+
+
+/*
+//Styel 1: Function Declaration,  text is being accessed directly from the component's state
+function convertToUpper() {
+  setpreviewText(text.toUpperCase())
+}
+
+
+Styel 1: Arrow Function  //Instead of directly accessing the text state, the new text value is updated by using the previous state (prevText).
+						//makes sure you are working on the most current state
+						//it ensures that the most recent state is used when updating the text, even if there are other updates happening at the same time
+const convertToUpper = () => {
+  setText((prevText) => prevText.toUpperCase());
+};
+
+

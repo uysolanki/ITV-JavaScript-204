@@ -150,6 +150,8 @@ const ProductContextProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [promoCode, setPromoCode] = useState(""); // Store promo code
+    const [discount, setDiscount] = useState(0); // Store discount amount
 
     // Fetch products from API
     useEffect(() => {
@@ -182,6 +184,13 @@ const ProductContextProvider = ({ children }) => {
         return <h1>{error}</h1>;
     }
 
+    const clearCart = () => {
+        setCartItems({});
+    };
+    const setPromo = (code, discountAmount) => {
+        setPromoCode(code); // Set promo code in context
+        setDiscount(discountAmount); // Set discount amount in context
+      };
     // Add item to the cart
     const addToCart = (itemId) => {
         alert('hi')
@@ -239,10 +248,14 @@ const ProductContextProvider = ({ children }) => {
     const contextValue = {
         cartItems,
         products,
+        promoCode,
+        discount,
         addToCart,
         removeFromCart,
         getTotalCartItems,
-        getTotalCartAmmount
+        getTotalCartAmmount,
+        setPromo,
+        clearCart
     };
 
     return (

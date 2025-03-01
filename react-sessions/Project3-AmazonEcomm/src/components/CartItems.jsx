@@ -1,10 +1,15 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import './CartItems.css';
 import { ProductContext } from '../context/ProductContext';
 import remove_cart from '../assets/myimages/remove-cart.png';
+import { useNavigate } from 'react-router-dom';
 
 export const CartItems = () => {
-    const { getTotalCartAmmount, products = [], cartItems, removeFromCart } = useContext(ProductContext);
+    const navigate = useNavigate();
+    const { getTotalCartAmount, products = [], cartItems, removeFromCart, setPromo, promoCode, discount } = useContext(ProductContext);
+
+    const [inputPromoCode, setInputPromoCode] = useState(''); // Input field for promo code
+    const [isPromoApplied, setIsPromoApplied] = useState(false); // Flag to check if the promo is applied
 
     // Calculate the subtotal for the cart
     const calculateSubtotal = () => {
@@ -15,8 +20,27 @@ export const CartItems = () => {
     };
 
     const subtotal = calculateSubtotal();
-    const GST = subtotal * 0.18;  // Assuming 18% GST
-    const totalAmount = subtotal + GST;
+    const GST = subtotal * 0.18; // Assuming 18% GST
+    let totalAmount = subtotal + GST;
+
+    // Handle promo code submission
+    const handlePromoCodeSubmit = () => {
+        // Check for a valid promo code (for demonstration)
+        if (inputPromoCode === "D10") {
+            const discountAmount = subtotal * 0.10; // Apply 10% discount
+            setPromo(inputPromoCode, discountAmount); // Set promo code and discount in context
+            setIsPromoApplied(true); // Mark promo as applied
+            totalAmount = totalAmount - discountAmount;
+            alert("Promo code applied! 10% discount received.");
+        } else {
+            alert("Invalid promo code.");
+        }
+    };
+
+    // Handle checkout button click
+    function handleCheckout() {
+        navigate("/checkout");
+    }
 
     return (
         <div className='cartitems'>
@@ -67,19 +91,37 @@ export const CartItems = () => {
                                 <p>₹{GST.toFixed(2)}</p> {/* Display GST to 2 decimal places */}
                             </div>
                             <hr />
+                            {/* If promo is applied, show original total with a strikethrough */}
+                            {isPromoApplied && (
+                                <div className="cartitems-total-item">
+                                    <p style={{ textDecoration: 'line-through', color: 'grey' }}>
+                                        Original Total
+                                    </p>
+                                    <p style={{ textDecoration: 'line-through', color: 'grey' }}>
+                                        ₹{totalAmount.toFixed(2)}
+                                    </p>
+                                </div>
+                            )}
+                            <hr />
+                            {/* New total after discount */}
                             <div className="cartitems-total-item">
                                 <h3>Total</h3>
-                                <h3>₹{totalAmount.toFixed(2)}</h3> {/* Total amount with GST */}
+                                <h3>₹{(totalAmount - discount).toFixed(2)}</h3> {/* Total amount with GST and discount */}
                             </div>
                         </div>
-                        <button>Proceed To Checkout</button>
+                        <button onClick={handleCheckout}>Proceed To Checkout</button>
                     </div>
 
                     <div className="cartitems-promocode">
                         <p>If you have a Promo code, Enter It here</p>
                         <div className="cartitem-promodox">
-                            <input type="text" placeholder='Promo Code' />
-                            <button>Submit</button>
+                            <input 
+                                type="text" 
+                                placeholder='Promo Code'
+                                value={inputPromoCode} 
+                                onChange={(e) => setInputPromoCode(e.target.value)} 
+                            />
+                            <button onClick={handlePromoCodeSubmit}>APPLY PROMO CODE</button>
                         </div>
                     </div>
                 </div>

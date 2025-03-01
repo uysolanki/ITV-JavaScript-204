@@ -44,7 +44,7 @@
   }
   .cart-remove-button {
     width: 30px;
-    cursor: not-allowed;
+    cursor: pointer;
   }
   
   .carticon-product-icon {

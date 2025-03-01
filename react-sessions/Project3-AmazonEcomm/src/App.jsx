@@ -9,6 +9,8 @@ import AddProduct from './pages/AddProduct'
 import UserRegister from './pages/UserRegister'
 import UserLogin from './pages/UserLogin'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Checkout from './pages/Checkout'
+import Payment from './pages/Payment'
 const App = () => {
   return (
     <>
@@ -22,6 +24,8 @@ const App = () => {
           <Route path='/userregister' element={<UserRegister/>}/>
           <Route path='/userlogin' element={<UserLogin/>}/>
           <Route path='/singlepro/:productId' element={<SingleProduct1/>}/>
+          <Route path="/checkout" element={<Checkout/>} />
+          <Route path="/payment" element={<Payment/>} />
       </Routes>
       <Footer/>
     </BrowserRouter>
