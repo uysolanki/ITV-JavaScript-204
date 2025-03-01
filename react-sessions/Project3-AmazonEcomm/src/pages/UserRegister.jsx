@@ -81,9 +81,9 @@ const UserRegister = () => {
                 onClick={togglePasswordVisibility}
               >
                 {showPassword ? (
-                  <img src={hide_eye} alt="Hide Password" />
+                  <img src={eye} alt="Show Password" /> 
                 ) : (
-                  <img src={eye} alt="Show Password" />
+                 <img src={hide_eye} alt="Hide Password" />
                 )}
               </button>
             </div>

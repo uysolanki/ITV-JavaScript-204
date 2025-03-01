@@ -34,6 +34,13 @@ const Checkout = () => {
         }
     };
 
+    const calculateTotalOrderAmount = () => {
+        return products.reduce((total, product) => {
+          const quantity = cartItems[product.id] || 0;
+          return total + (product.price * quantity);
+        }, 0);
+      };
+      
     return (
         <div className="checkout-container">
             <h1>Checkout</h1>
@@ -52,6 +59,9 @@ const Checkout = () => {
                     }
                     return null;
                 })}
+                <div className="checkout-total">
+                    <h3><strong>Total Order Amount: ₹{calculateTotalOrderAmount().toFixed(2)}</strong></h3>
+                </div>
                 <div className="checkout-total">
                     <p><strong>GST (18%):</strong> ₹{GST.toFixed(2)}</p>
                     <p><strong>Promo Code:</strong> {promoCode || "No promo code applied"}</p>

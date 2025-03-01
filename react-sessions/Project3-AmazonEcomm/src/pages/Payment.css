@@ -1,0 +1,101 @@
+.payment-page-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.payment-page-container h1 {
+    text-align: center;
+    color: #333;
+}
+
+.payment-method {
+    margin-top: 20px;
+}
+
+.payment-method h2 {
+    font-size: 1.5rem;
+    color: #444;
+}
+
+.payment-method div {
+    margin: 10px 0;
+}
+
+.payment-method label {
+    margin-left: 10px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.payment-method input[type="radio"] {
+    margin-right: 10px;
+}
+
+.card-details {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-details h3 {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.card-details div {
+    margin-bottom: 15px;
+}
+
+.card-details label {
+    font-size: 1rem;
+    color: #555;
+}
+
+.card-details input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.card-details input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.payment-button {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.payment-button button {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.payment-button button:hover {
+    background-color: #218838;
+}
+
+.payment-button button:active {
+    background-color: #1e7e34;
+}
+
+.payment-button button:focus {
+    outline: none;
+}

@@ -1,57 +1,101 @@
+/* General Container Styling */
 .checkout-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.checkout-summary {
+    width: 80%;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .checkout-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  /* Order Summary Section */
+  .checkout-summary {
+    margin-bottom: 2rem;
+  }
+  
+  .checkout-summary h2 {
+    font-size: 1.5rem;
+    color: #333;
     border-bottom: 2px solid #ddd;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-}
-
-.checkout-summary h2 {
-    margin-bottom: 10px;
-}
-
-.checkout-product {
-    margin-bottom: 10px;
-}
-
-.checkout-total {
+    padding-bottom: 10px;
+    margin-bottom: 1rem;
+  }
+  
+  .checkout-product {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+  }
+  
+  .checkout-product p {
+    margin: 0;
+  }
+  
+  .checkout-total {
+    margin-top: 1rem;
+  }
+  
+  .checkout-total p {
+    font-size: 1.1rem;
+    margin: 5px 0;
+  }
+  
+  .checkout-total h3 {
+    font-size: 1.5rem;
     font-weight: bold;
-}
-
-.checkout-details,
-.checkout-payment {
-    margin-bottom: 20px;
-}
-
-.checkout-details textarea {
+    color: #2e7d32;
+    margin-top: 1rem;
+  }
+  
+  /* Shipping Address Section */
+  .checkout-details {
+    margin-bottom: 2rem;
+  }
+  
+  .checkout-details h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .checkout-details textarea {
     width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.checkout-payment select {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.checkout-button button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+  }
+  
+  /* Checkout Button Section */
+  .checkout-button {
+    text-align: center;
+  }
+  
+  .checkout-button button {
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    background-color: #28a745;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
-}
-
-.checkout-button button:hover {
-    background-color: #45a049;
-}
+    transition: background-color 0.3s ease;
+  }
+  
+  .checkout-button button:hover {
+    background-color: #218838;
+  }
+  
+  .checkout-button button:focus {
+    outline: none;
+  }
+  

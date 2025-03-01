@@ -4,9 +4,9 @@ export const registartionValidation = yup.object({
   title: yup
     .string()
     .matches(/^[a-zA-Z0-9 !@#$%^&*(),.?":{}|<>_\-+=]*$/, "Enter a valid ti with special characters and digits allowed" )
-    .min(3, "Description must be at least 3 characters")
-    .max(200, "Description must be at most 200 characters")
-    .required("Description is required"),
+    .min(3, "Title must be at least 3 characters")
+    .max(200, "Title must be at most 200 characters")
+    .required("Title is required"),
   
     price: yup
     .number()
@@ -17,11 +17,11 @@ export const registartionValidation = yup.object({
 
   description: yup
     .string()
-    .matches(/^[a-zA-Z0-9 !@#$%^&*(),.?":{}|<>_\-+=]*$/, "Enter a valid ti with special characters and digits allowed" ),
+    .matches(/^[a-zA-Z0-9 '!@#$%^&*(),.?":{}|<>_\-+=]*$/, "Enter a valid description" ),
 
   category: yup
     .string()
-    .matches(/^[a-zA-Z0-9 '!@#$%^&*(),.?":{}|<>_\-+=]*$/, "Enter a valid ti with special characters and digits allowed" )
+    .matches(/^[a-zA-Z0-9 '!@#$%^&*(),.?":{}|<>_\-+=]*$/, "Enter a valid category" )
     .required("Category is Mandatory"),
 
   image: yup
