@@ -1,0 +1,192 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Basic styles for Hero */
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    /* background: linear-gradient(135deg, #000, #434343); */
+    background-image: url(../assets/myimages/hero_bg.jpg);
+    color: #fff;
+    /* transition: background 0.3s ease-in-out; */
+  }
+  
+  .hero-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 50%;
+    padding: 20px;
+    animation: fadeInLeft 1s ease-in-out;
+  }
+  
+  .hero-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+    padding: 20px;
+    animation: fadeInRight 1s ease-in-out;
+  }
+  
+  .hero h2 {
+    font-size: 3rem;
+    font-weight: bolder;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeInDown 1s ease-in-out;
+  }
+  
+  .hero-collection {
+    display: flex;
+    font-size: 2rem;
+    font-weight: 100;
+    word-spacing: 5px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  .hero-hand-icon {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .hero-hand-icon p {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  
+  .hero-hand-icon img {
+    width: 30px;
+    height: 30px;
+    filter: brightness(0) invert(1); /* Invert image colors for black and white theme */
+  }
+  
+  .hero-latest-btn {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border: 1px solid #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .hero-latest-btn:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .hero-latest-btn img {
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .hero-latest-btn:hover img {
+    transform: translateX(5px);
+  }
+  
+  .hero-right img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: zoomIn 1s ease-in-out;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .hero-left,
+    .hero-right {
+      max-width: 100%;
+      text-align: center;
+    }
+  
+    .hero h2 {
+      font-size: 2rem;
+    }
+  
+    .hero-latest-btn {
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero h2 {
+      font-size: 1.5rem;
+    }
+  
+    .hero-latest-btn {
+      padding: 8px 16px;
+    }
+  
+    .hero-latest-btn img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  
+  /* Animations */
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  

@@ -1,0 +1,35 @@
+/* Breadcrum.css */
+
+.breadcrum {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333; /* Dark gray text color for breadcrumbs */
+    background-color: #f9f9f9; /* Light gray background */
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+  }
+  
+  .breadcrum img {
+    width: 12px; /* Smaller size for arrow icons */
+    height: 12px;
+    filter: grayscale(100%); /* Grayscale effect on the arrow icons */
+  }
+  
+  .breadcrum a {
+    color: #000; /* Black color for links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .breadcrum a:hover {
+    color: #555; /* Slightly lighter color on hover */
+  }
+  
+  .breadcrum span {
+    color: #000; /* Black for current breadcrumb item */
+    font-weight: bold;
+  }
+  

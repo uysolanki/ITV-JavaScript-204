@@ -1,0 +1,143 @@
+/* Footer.css */
+
+.footer {
+    background: #222; /* Dark background for footer */
+    color: #fff; /* White text for readability */
+    padding: 40px 20px;
+    text-align: left;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  .logo-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .logo-footer h1 {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .logo-footer img {
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+    margin-top: 10px;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 20px 0;
+    padding: 0 10px;
+  }
+  
+  .footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .footer-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-section ul li {
+    margin: 10px 0;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-section ul li:hover {
+    color: #fff;
+  }
+  
+  .footer-section.newsletter p {
+    margin-bottom: 10px;
+    color: #ccc;
+  }
+  
+  .footer-section.newsletter input[type="email"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  .footer-section.newsletter button {
+    padding: 10px;
+    background-color: #d32f2f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .footer-section.newsletter button:hover {
+    background-color: #b71c1c;
+  }
+  
+  .footer-social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .footer-social-icons img {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .footer-social-icons img:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+  }
+  
+  .footer-copyright {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .footer-copyright p {
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .footer-section {
+      min-width: 100%;
+      margin: 10px 0;
+    }
+  
+    .footer-section.newsletter input[type="email"],
+    .footer-section.newsletter button {
+      width: 100%;
+    }
+  }
+  

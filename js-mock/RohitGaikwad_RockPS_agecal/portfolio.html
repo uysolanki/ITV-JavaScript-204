@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User-Centric Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+            transition: 0.5s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .dark-mode {
+            background-color: #222;
+            color: white;
+        }
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .project-list, .skills-list {
+            text-align: left;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="username">[Your Name]</h1>
+        <h2 id="profession">[Your Profession]</h2>
+        <p id="about">Welcome to my portfolio! I am passionate about web development.</p>
+        
+        <h2>Projects</h2>
+        <ul id="projects" class="project-list"></ul>
+        
+        <h2>Skills</h2>
+        <ul id="skills" class="skills-list"></ul>
+        
+        <h2>Contact Me</h2>
+        <input type="text" id="name" placeholder="Your Name">
+        <input type="email" id="email" placeholder="Your Email">
+        <button onclick="validateForm()">Submit</button>
+        
+        <br><br>
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </div>
+
+    <script>
+        // Dynamic User Data
+        const user = {
+            name: "Rohit Rajendra Gaikwad",
+            profession: "Web Developer",
+            about: "I love creating user-friendly websites and applications!",
+            projects: ["Portfolio Website", "E-commerce Platform"],
+            skills: ["HTML", "CSS", "JavaScript", "React", "Node.js"]
+        };
+
+        // Load User Data into Page
+        document.getElementById("username").innerText = user.name;
+        document.getElementById("profession").innerText = user.profession;
+        document.getElementById("about").innerText = user.about;
+
+        // Add Projects
+        const projectList = document.getElementById("projects");
+        user.projects.forEach(project => {
+            let li = document.createElement("li");
+            li.innerText = project;
+            projectList.appendChild(li);
+        });
+
+        // Add Skills
+        const skillsList = document.getElementById("skills");
+        user.skills.forEach(skill => {
+            let li = document.createElement("li");
+            li.innerText = skill;
+            skillsList.appendChild(li);
+        });
+
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        // Form Validation
+        function validateForm() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            if (name === "" || email === "") {
+                alert("Please fill in all fields!");
+            } else {
+                alert("Thank you for reaching out, " + name + "!");
+            }
+        }
+    </script>
+</body>
+</html>

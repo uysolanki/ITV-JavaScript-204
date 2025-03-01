@@ -1,0 +1,103 @@
+/* Container for the login page */
+.login-container {
+    /* background: url(../assets/myimages/Background.jpg); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000; /* Black background */
+  }
+  
+  /* Form container */
+  .login-form {
+    background-color: #ffffff71; /* White background for the form */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Title */
+  .login-form h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #000; /* Black text */
+  }
+  
+  /* Input fields */
+  .login-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .login-fields input {
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #000; /* Black border */
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #000; /* Black text */
+  }
+  
+  .login-fields input::placeholder {
+    color: #999; /* Light grey placeholder text */
+  }
+  
+  /* Login button */
+  .login-button {
+    background-color: #000; /* Black button */
+    color: #fff; /* White text */
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .login-button:hover {
+    background-color: #333; /* Slightly lighter black on hover */
+  }
+  
+  /* Forgot password link */
+  .login-forgot p {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555; /* Dark grey text */
+    cursor: pointer;
+  }
+  
+  .login-forgot p:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .login-form {
+      padding: 20px;
+    }
+  
+    .login-form h1 {
+      font-size: 24px;
+    }
+  
+    .login-fields input {
+      padding: 12px;
+      font-size: 14px;
+    }
+  
+    .login-button {
+      font-size: 16px;
+      padding: 12px;
+    }
+  
+    .login-forgot p {
+      font-size: 13px;
+    }
+  }
+  

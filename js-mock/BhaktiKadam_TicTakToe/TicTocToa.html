@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #0da4a4, #067a7a);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+            animation: fadeIn 1s ease-in-out;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .game {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5vmin;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            animation: zoomIn 0.5s ease-in-out;
+        }
+        .box {
+            height: 18vmin;
+            width: 18vmin;
+            border-radius: 1rem;
+            border: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            font-size: 8vmin;
+            color: rgb(40, 20, 103);
+            background: radial-gradient(circle, #fef253, #ffb74d);
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .box:hover {
+            background: #ff9800;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+        .winner {
+            animation: winnerAnimation 0.5s ease-in-out infinite alternate;
+        }
+        @keyframes winnerAnimation {
+            from {
+                background: #ff9800;
+            }
+            to {
+                background: #ff5722;
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        #msg {
+            font-size: 2rem;
+            color: white;
+            margin-top: 1rem;
+            padding: 1rem;
+        }
+       
+        .show {
+            display: block;
+        }
+        button {
+            padding: 1rem;
+            font-size: 1.25rem;
+            background: #191913;
+            color: white;
+            border-radius: 1rem;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #333;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Tic Tac Toe</h1>
+    <div class="container">
+        <div class="game">
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+        </div>
+    </div>
+    <div class="msg-container">
+        <p id="msg">Winner</p>
+        <button id="new-btn">New Game</button>  
+        <button id="reset">Reset Game</button>
+    </div>
+    <script>
+        let boxes = document.querySelectorAll('.box');
+        let resetBtn = document.querySelector('#reset');
+        let newGameBtn = document.querySelector('#new-btn');
+        let msgContainer = document.querySelector('.msg-container');
+        let msg = document.querySelector('#msg');
+        let player = 'X';
+        let computer = 'O';
+
+        const winPatterns = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8],
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],
+            [0, 4, 8], [2, 4, 6]
+        ];
+
+        const checkWinner = () => {
+            for (let pattern of winPatterns) {
+                let [a, b, c] = pattern;
+                if (boxes[a].innerText && boxes[a].innerText === boxes[b].innerText && boxes[a].innerText === boxes[c].innerText) {
+                    showWinner(boxes[a].innerText);
+                    return true;
+                }
+            }
+            if ([...boxes].every(box => box.innerText !== "")) {
+                msg.innerText = 'Match Drawn';
+                msgContainer.classList.remove('hide');
+                return true;
+            }
+            return false;
+        };
+
+      
+        const disableBoxes = () => {
+            boxes.forEach(box => box.disabled = true);
+        };
+
+        const enableBoxes = () => {
+            boxes.forEach(box => {
+                box.innerText = "";
+                box.disabled = false;
+            });
+        };
+
+        const computerMove = () => {
+            let emptyBoxes = [...boxes].filter(box => box.innerText === "");
+            if (emptyBoxes.length === 0) return;
+            let randomBox = emptyBoxes[Math.floor(Math.random() * emptyBoxes.length)];
+            randomBox.innerText = computer;
+            randomBox.disabled = true;
+            if (!checkWinner()) {
+                playerTurn = true;
+            }
+        };
+
+        let playerTurn = true;
+        boxes.forEach(box => {
+            box.addEventListener('click', function () {
+                if (playerTurn && this.innerText === "") {
+                    this.innerText = player;
+                    this.disabled = true;
+                    playerTurn = false;
+                    if (!checkWinner()) {
+                        setTimeout(computerMove, 500);
+                    }
+                }
+            });
+        });
+
+        const resetGame = () => {
+            enableBoxes();
+            msgContainer.classList.add('hide');
+            playerTurn = true;
+        };
+
+        newGameBtn.addEventListener('click', resetGame);
+        resetBtn.addEventListener('click', resetGame);
+
+
+        const showWinner = (winner) => {
+            msg.innerText = `Congratulations, Winner is ${winner}`;
+            msgContainer.classList.remove('hide');
+            disableBoxes();
+        };
+
+
+        newGameBtn.addEventListener('click', resetGame);
+        resetBtn.addEventListener('click', resetGame);
+
+    </script>
+</body>
+</html>

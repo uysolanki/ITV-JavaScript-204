@@ -1,0 +1,83 @@
+.formcontainer {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Each form field container */
+  .formcontainer > div {
+    margin-bottom: 15px;
+  }
+  
+  /* Label styling */
+  .formcontainer label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  /* Input field styling */
+  .formcontainer input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Input field focus effect */
+  .formcontainer input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Optional: Add some spacing around the form */
+  body {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 480px) {
+    .formcontainer {
+      padding: 15px;
+    }
+  
+    .formcontainer input[type="text"] {
+      padding: 8px;
+      font-size: 12px;
+    }
+  
+    .formcontainer label {
+      font-size: 14px;
+    }
+  }
+  
+  .buttongroup
+  {
+  display: flex;
+  justify-content: space-around;
+  }
+  .buttongroup button{
+    padding: 5px 8px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  p{
+    color: red;
+  }

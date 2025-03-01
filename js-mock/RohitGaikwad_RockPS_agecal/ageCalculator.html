@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music-Themed Age Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: url('https://source.unsplash.com/1600x900/?music,concert') no-repeat center center/cover;
+            color: white;
+            margin-top: 50px;
+        }
+        #container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            width: 350px;
+            margin: auto;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 90%;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+        button {
+            background: #ff6600;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #cc5200;
+        }
+        #result {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        audio {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <h2>🎸 Music-Themed Age Calculator 🎶</h2>
+        <label for="dob">Enter your birthdate:</label>
+        <input type="date" id="dob">
+        <button onclick="startCalculation()">Start Calculation</button>
+        <h3 id="result"></h3>
+
+        <!-- 🎵 Background Music -->
+        <audio id="bgMusic" loop>
+            <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        let interval;
+
+        function startCalculation() {
+            let dob = document.getElementById("dob").value;
+            if (dob === "") {
+                alert("Please select your birthdate!");
+                return;
+            }
+
+            clearInterval(interval); // Stop previous timer if running
+
+            document.getElementById("bgMusic").play(); // Start background music
+
+            interval = setInterval(() => {
+                calculateAge(dob);
+            }, 1000); // Update every second
+        }
+
+        function calculateAge(dob) {
+            let birthDate = new Date(dob);
+            let now = new Date();
+
+            let years = now.getFullYear() - birthDate.getFullYear();
+            let months = now.getMonth() - birthDate.getMonth();
+            let days = now.getDate() - birthDate.getDate();
+            let hours = now.getHours() - birthDate.getHours();
+            let minutes = now.getMinutes() - birthDate.getMinutes();
+            let seconds = now.getSeconds() - birthDate.getSeconds();
+
+            if (seconds < 0) { seconds += 60; minutes--; }
+            if (minutes < 0) { minutes += 60; hours--; }
+            if (hours < 0) { hours += 24; days--; }
+            if (days < 0) {
+                let prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+                days += prevMonth.getDate();
+                months--;
+            }
+            if (months < 0) { months += 12; years--; }
+
+            document.getElementById("result").innerHTML = `
+                You are 🎵 <b>${years} years, ${months} months, ${days} days,</b><br>
+                <b>${hours} hours, ${minutes} minutes, and ${seconds} seconds</b> old! 🎶
+            `;
+        }
+    </script>
+
+</body>
+</html>

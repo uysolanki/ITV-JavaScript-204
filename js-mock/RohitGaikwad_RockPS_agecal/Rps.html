@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body {
+        background-color: black;
+        color: white;
+        font-family: arial;
+        
+      }
+        .move-button{
+        height: 100px;
+        width: 100px;
+        border : 3px solid white;
+        border-radius: 50px;
+        background-color: transparent;
+        margin: 0px 20px;
+        cursor: pointer;
+      }
+      .move-icon {
+        height: 70px;
+      }
+      .small-move-icon {
+        height: 50px;
+      }
+      .game-area
+      {
+        display: inline-block;
+        border: 1px solid red;
+        text-align: center;
+        padding: 10px;
+        margin-top: 100px;
+        background-color: rgb(49, 43, 43);
+      }
+      .player-move,.game-result,.scoreboard{
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .autoplay-button{
+        background-color: red;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 2px;
+        padding: 10px;
+        cursor: pointer;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <center>
+        <div class="game-area">
+    <button onclick="playGame('ROCK')" class="move-button"><img src="/images/Rock.png" class="move-icon" alt="Rock"></button>
+    <button onclick="playGame('PAPER')" class="move-button"><img src="../images/Paper.png" class="move-icon" alt="Paper"></button>
+    <button onclick="playGame('SCISSORS')" class="move-button"><img src="../images/Scissors.png" class="move-icon" alt="Scissor"></button>
+    <button onclick="clearScore()" class="move-button"> <img src="../images/Reset.png" class="move-icon" alt="Reset"></button>
+    
+    <p id="js-moves" class="player-move"></p>
+    <p id="js-result" class="game-result"></p>
+    <p id="js-scoreboard" class="scoreboard"></p>
+
+    <button  onclick="playAutoMode()"  class="js-autoplay-button autoplay-button">AUTOPLAY</button>
+        </div>
+        </center>
+    <script>
+         let score = JSON.parse(localStorage.getItem("myScore")) || 
+         {
+        win: 0,
+        loss: 0,
+        tie: 0,
+         };
+
+
+       const scoreboardParagraphElement=document.querySelector('#js-scoreboard');
+
+       function playGame(playerMove)
+       {
+        const computerMove=generateComputerMove();
+        
+        let result='';
+        
+
+        displayScoreBoard(score)
+        switch (playerMove) {
+                case 'ROCK':
+                    result = (computerMove === 'ROCK') ? 'TIE' : (computerMove === 'PAPER') ? 'LOSS' : 'WIN';
+                    break;
+                case 'PAPER':
+                    result = (computerMove === 'ROCK') ? 'WIN' : (computerMove === 'PAPER') ? 'TIE' : 'LOSS';
+                    break;
+                case 'SCISSORS':
+                    result = (computerMove === 'ROCK') ? 'LOSS' : (computerMove === 'PAPER') ? 'WIN' : 'TIE';
+                    break;
+            }
+       
+        switch(result)
+        {
+            case 'LOSS':score.loss+=1; break;
+            case 'WIN':score.win+=1; break;
+            case 'TIE':score.tie+=1; break;
+        }
+        localStorage.setItem("myScore", JSON.stringify(score));
+        displayScoreBoard()
+
+        const moveParagraphElement=document.querySelector('#js-moves')
+        const resultParagraphElement=document.querySelector('#js-result')
+       
+
+       // moveParagraphElement.innerHTML=`computer move-> ${computerMove}  |  ${playerMove} <-Player move`
+       moveParagraphElement.innerHTML=`computer move-> <img src="/images/${computerMove}.png" class="small-move-icon" alt="${computerMove}"/>  |  <img src="/images/${playerMove}.png" class="small-move-icon" alt="${playerMove}"> <-Player move`;
+        resultParagraphElement.innerHTML=`Result : ${result}`;
+       }
+
+       function generateComputerMove() {
+            const randomNumber = Math.random();
+            return (randomNumber <= 1 / 3) ? "ROCK" : (randomNumber <= 2 / 3) ? "PAPER" : "SCISSORS";
+        }
+
+        function displayScoreBoard() {
+            scoreboardParagraphElement.innerHTML = `Scoreboard : WINS ${score.win} LOSS ${score.loss} TIE ${score.tie}`;
+        }
+
+        function clearScore() {
+            localStorage.removeItem("myScore");
+            score = { win: 0, loss: 0, tie: 0 };
+            displayScoreBoard();
+        }
+
+        let isAutoPlaying = false;
+        let intervalId;
+
+        function playAutoMode() {
+            const autoplayButtonElement = document.querySelector('.js-autoplay-button');
+            if (!isAutoPlaying) {
+                intervalId = setInterval(() => {
+                    const computerGeneratedPlayerMove = generateComputerMove();
+                    playGame(computerGeneratedPlayerMove);
+                }, 1000);
+                isAutoPlaying = true;
+                autoplayButtonElement.classList.add('autoplay-active');
+            } else {
+                isAutoPlaying = false;
+                clearInterval(intervalId);
+                autoplayButtonElement.classList.remove('autoplay-active');
+            }
+        }
+     </script>
+  </body>
+</html>

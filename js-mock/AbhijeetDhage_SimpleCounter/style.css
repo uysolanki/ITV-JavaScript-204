@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+#countLabel {
+    display: block;
+    text-align: center;
+    font-size: 10em;
+    font-family: Helvetica;
+    color: white;
+    margin-top: 50px;
+}
+
+#btnContainer {
+    text-align: center;
+    margin-top: 50px;
+    border: 1px solid black;
+
+}
+
+.buttons {
+    padding: 10px 20px;
+    font-size: 1.5em;
+    color: white;
+    background-color: hsl(214, 100%, 74%);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.25s ease-in-out;
+}
+
+.buttons:hover {
+    background-color: hsl(214, 100%, 56%);
+}
+
+#resetBtn {
+    margin: 0 20px;
+    background-color: rgba(255, 255, 255, 0.500);
+}
+
+#resetBtn:hover {
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+#decreaseBtn {
+    margin-right: 20px;
+    background-color: rgba(255, 0, 0, 0.500);
+}
+
+#decreaseBtn:hover {
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+
+#increaseBtn {
+    margin-left: 20px;
+    background-color: rgba(0, 255, 0, 0.500);
+}
+
+#increaseBtn:hover {
+    background-color: rgb(0, 255, 0);
+    color: white;
+}

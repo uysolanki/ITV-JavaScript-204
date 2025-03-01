@@ -8,6 +8,7 @@ import Heropage from './pages/Heropage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import SingleProduct from './pages/SingleProduct';
+import RegisterNew from './pages/RegisterNew';
 const App = () => {
   return (
     <>
@@ -17,7 +18,7 @@ const App = () => {
           <Route  path="/" element={<Heropage/>}/>
           <Route  path="/products" element={<Products/>}/>
           <Route  path="/login" element={<Login/>}/>
-          <Route  path="/register" element={<Register/>}/>
+          <Route  path="/register" element={<RegisterNew/>}/>
           <Route  path="/cart" element={<Cart/>}/>
           <Route  path="/singlepro/:productId" element={<SingleProduct/>}/>
 
